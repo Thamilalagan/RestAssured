@@ -18,9 +18,7 @@ import utility.TestUtil;
 
 public class GetAPITest extends TestBase{
 	TestBase testBase;
-	String serviceUrl;
-	String apiUrl;
-	String url;
+	String serviceUrl, apiUrl, url, email1, fName1, lName1, avatar1;
 	RestClient restClient;
 	CloseableHttpResponse closeableHttpResponse;
 	
@@ -29,6 +27,10 @@ public class GetAPITest extends TestBase{
 		testBase = new TestBase();
 		serviceUrl = prop.getProperty("URL");
 		apiUrl = prop.getProperty("serviceURL");
+		email1 = prop.getProperty("email1");
+		fName1 = prop.getProperty("fName1");
+		lName1 = prop.getProperty("lName1");
+		avatar1 = prop.getProperty("avatar1");
 		url = serviceUrl+apiUrl;
 		
 	}
@@ -68,10 +70,10 @@ public class GetAPITest extends TestBase{
 		
 		System.out.println("The data in the array is "+id+" "+email+" "+fName+" "+lName+" "+avatar+" ");
 		Assert.assertEquals(Integer.parseInt(id), 1);
-		Assert.assertEquals(email, "george.bluth@reqres.in");
-		Assert.assertEquals(fName, "George");
-		Assert.assertEquals(lName, "Bluth");
-		Assert.assertEquals(avatar, "https://reqres.in/img/faces/1-image.jpg");
+		Assert.assertEquals(email, email1);
+		Assert.assertEquals(fName, fName1);
+		Assert.assertEquals(lName, lName1);
+		Assert.assertEquals(avatar, avatar1);
 		
 		
 		//All headers
@@ -125,10 +127,10 @@ public class GetAPITest extends TestBase{
 		
 		System.out.println("The data in the array is "+id+" "+email+" "+fName+" "+lName+" "+avatar+" ");
 		Assert.assertEquals(Integer.parseInt(id), 1);
-		Assert.assertEquals(email, "george.bluth@reqres.in");
-		Assert.assertEquals(fName, "George");
-		Assert.assertEquals(lName, "Bluth");
-		Assert.assertEquals(avatar, "https://reqres.in/img/faces/1-image.jpg");
+		Assert.assertEquals(email, email1);
+		Assert.assertEquals(fName, fName1);
+		Assert.assertEquals(lName, lName1);
+		Assert.assertEquals(avatar, avatar1);
 		
 		
 		//All headers

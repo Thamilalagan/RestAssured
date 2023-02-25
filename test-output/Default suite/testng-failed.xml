@@ -6,7 +6,8 @@
       <class name="tests.GetAPITest">
         <methods>
           <include name="setUp"/>
-          <include name="getAPITest"/>
+          <include name="getAPITestWithoutHeaders"/>
+          <include name="getAPITestWithHeaders"/>
         </methods>
       </class> <!-- tests.GetAPITest -->
     </classes>
