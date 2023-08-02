@@ -12,7 +12,7 @@ public class TestBase {
 	public int ResponseStatusCode_200 = 200;
 	public int ResponseStatusCode_201 = 201;
 	public int ResponseStatusCode_400 = 400;
-	public int ResponseStatusCode_401 = 401;
+	public int ResponseStatusCode_404 = 404;
 	public int ResponseStatusCode_500 = 500;
 	
 	

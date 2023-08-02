@@ -18,7 +18,7 @@ import utility.TestUtil;
 
 public class GetAPITest extends TestBase{
 	TestBase testBase;
-	String serviceUrl, apiUrl, url, email1, fName1, lName1, avatar1;
+	String serviceUrl, apiUrl, url, email1, fName1, lName1, avatar1,userNotFound,invalidURL;
 	RestClient restClient;
 	CloseableHttpResponse closeableHttpResponse;
 	
@@ -32,6 +32,9 @@ public class GetAPITest extends TestBase{
 		lName1 = prop.getProperty("lName1");
 		avatar1 = prop.getProperty("avatar1");
 		url = serviceUrl+apiUrl;
+		userNotFound = prop.getProperty("userNotFound");
+		invalidURL = prop.getProperty("invalidURL");
+		
 		
 	}
 	
@@ -144,6 +147,32 @@ public class GetAPITest extends TestBase{
 		System.out.println("Headers Array "+allHeaders);
 
 		
+	}
+	
+	@Test(priority=3)
+	public void userValidation() throws ClientProtocolException, IOException {
+		restClient = new RestClient();
+		closeableHttpResponse = restClient.get(userNotFound);
+		
+		//get status code
+		int statusCode = closeableHttpResponse.getStatusLine().getStatusCode();
+		System.out.println("Status Code "+statusCode);
+		
+		Assert.assertEquals(statusCode,ResponseStatusCode_404, "Status code is not 404");
+	
+	}
+
+	@Test(priority=4)
+	public void urlValidation() throws ClientProtocolException, IOException {
+		restClient = new RestClient();
+		closeableHttpResponse = restClient.get(invalidURL);
+		
+		//get status code
+		int statusCode = closeableHttpResponse.getStatusLine().getStatusCode();
+		System.out.println("Status Code "+statusCode);
+		
+		Assert.assertEquals(statusCode,ResponseStatusCode_404, "Status code is not 404");
+	
 	}
 
 
